@@ -2,6 +2,7 @@ const express = require(`express`);
 const cors = require(`cors`);
 
 const youtubeShows = require(`./controllers/youtube-shows`);
+const anime = require(`./controllers/anime`);
 
 const PORT = process.env.PORT || 3001;
 
@@ -13,5 +14,9 @@ app.use(express.urlencoded({extended: true}));
 
 app.get(`/youtube-shows`, youtubeShows.youtubeShows);
 app.get(`/youtube-shows/:youtubeShowsId`, youtubeShows.getYoutubeShows);
+
+app.get(`/anime`, anime.anime);
+app.get(`/anime/:animeId`, anime.getAnime);
+
 
 app.listen(PORT, ()=> console.log(`Server running ${PORT}`));
